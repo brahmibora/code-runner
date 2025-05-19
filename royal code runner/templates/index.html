@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Royal Code Platformer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h1>Code Runner</h1>
+
+  <div class="main-container">
+    <div class="main-content">
+      
+      <div class="left-panel">
+        <canvas id="gameCanvas" width="370" height="460"></canvas>
+      </div>
+
+      <div class="right-panel code-panel">
+        <textarea id="codeInput" placeholder="Write your command here..."></textarea>
+        <button onclick="runCode()">Action</button>
+
+        <div class="instructions-blocks">
+          <h3>Instructions</h3>
+          <div class="instruction" onclick="runCommand('moveRight(1);')">moveRight(n);</div>
+          <div class="instruction" onclick="runCommand('moveLeft(1);')">moveLeft(n);</div>
+          <div class="instruction" onclick="runCommand('jump();')">jump();</div>
+          <div class="instruction" onclick="runCommand('wait(1);')">wait(n);</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="compilerOutput">
+      <h3>Compiler Output</h3>
+      <pre id="tokens"></pre>
+      <pre id="parseTree"></pre>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
